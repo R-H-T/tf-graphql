@@ -1,0 +1,39 @@
+
+type User {
+    id: ID! @unique
+    createdAt: DateTime!
+    firstName: String!
+    lastName: String!
+    email: String!
+    teams: [Team]
+    players: [Player]
+}
+
+type Player {
+    id: ID! @unique
+    name: String!
+    createdAt: DateTime!
+    createdBy: User!
+}
+
+type Team {
+    id: ID! @unique
+    createdAt: DateTime!
+    players: [Player]!
+}
+
+type Goal {
+    id: ID! @unique
+    createdAt: DateTime!
+    time: Integer!
+    team: Team!
+    player: Player!
+    points: Integer!
+}
+
+type Match {
+    id: ID! @unique
+    createdAt: DateTime!
+    teams: [Team]!
+    goals: [Goal]!
+}

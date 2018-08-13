@@ -1,0 +1,19 @@
+{
+  "name": "tf-graphql",
+  "version": "1.0.0",
+  "description": "A GraphQL DB Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roberth Hansson-Tornéus <Gawee.Narak@gmail.com>",
+  "license": "SEE LICENSE IN README.md",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.3",
+    "graphql-yoga": "^1.16.0",
+    "jsonwebtoken": "^8.3.0",
+    "prisma-binding": "^2.1.4"
+  }
+}
