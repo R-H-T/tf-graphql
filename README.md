@@ -129,6 +129,6 @@ Planning to make this project run within its own Docker container or/and just de
 
 # License
 **TBD**
-Copyright ©2018 – Roberth Hansson-Tornéus ([R-H-T](github.com/R-H-T))
+Copyright ©2018 – Roberth Hansson-Tornéus – [R-H-T](github.com/R-H-T) (Gawee.Narak@gmail.com)
 
 [image-1]: r-h-t_tablefootball_md.png
