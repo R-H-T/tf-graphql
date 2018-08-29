@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "dock": "sh run-dock-deploy.sh",
+    "playgrounds": "graphql playground",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Roberth Hansson-Tornéus <Gawee.Narak@gmail.com>",

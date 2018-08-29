@@ -1,4 +1,89 @@
+# import USER_ROLE, Player, Match, Goal, Team, MatchSubscriptionPayload from "./generated/prisma.graphql"
+
+# Local Models
+
+type User {
+    id: ID!
+    createdAt: DateTime!
+    name: String!
+    email: String!
+    players: [Player!]!
+    associatedPlayers: [Player!]!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+input PlayerInput {
+    id: ID!
+    name: String!
+}
+
+input TeamInput {
+    id: ID!
+    name: String!
+    teamColor: String
+    players: [PlayerInput!]!
+}
+
+input GoalPlayerInput {
+    id: ID!
+    name: String!
+}
+
+input GoalTeamInput {
+    id: ID!
+    name: String!
+}
+
+input GoalMatchInput {
+    id: ID!
+    name: String!
+}
+
+input GoalInput {
+    id: ID!
+    points: Int
+    time: Int!
+    match: GoalMatchInput!
+    player: GoalPlayerInput!
+    team: GoalTeamInput!
+}
+
+input MatchInput {
+    id: ID!
+    name: String!
+    timeActive: Int
+    teams: [TeamInput!]!
+    goals: [GoalInput]!
+}
+
+# Query, Mutation
 
 type Query {
   info: String!
+  users: [User!]!
+  userExists(email: String!): Boolean
+  players: [Player!]!
+  goals: [Goal!]!
+  teams: [Team!]!
+  matches: [Match!]!
+  match(id: ID!): Match
+}
+
+type Mutation {
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+    createPlayer(name: String!, id: ID!): Player
+    createTeam(input: TeamInput!): Team
+    createGoal(input: GoalInput!): Goal
+    createMatch(input: MatchInput!): Match
+    resetMatch(id: ID!): Match
+    deleteMatch(id: ID!): Match
+}
+
+type Subscription {
+    newMatch: MatchSubscriptionPayload
 }

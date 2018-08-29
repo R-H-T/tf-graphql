@@ -1,39 +1,59 @@
 
+enum USER_ROLE {
+    THE_BOSS # Always show what the boss wants to see.
+    EMPLOYEE
+    ADMIN
+    EDITOR
+    PUBLISHER
+    PUBLIC
+}
+
 type User {
     id: ID! @unique
     createdAt: DateTime!
-    firstName: String!
-    lastName: String!
-    email: String!
-    teams: [Team]
-    players: [Player]
+    name: String!
+    email: String! @unique
+    password: String!
+    roles: [USER_ROLE!]! @default(value: { set: [PUBLIC] })
+    players: [Player!]! @relation(name: "Creator")
+    associatedPlayers: [Player!]! @relation(name: "Associated") @default(value: [])
 }
 
 type Player {
     id: ID! @unique
-    name: String!
+    name: String! @unique
     createdAt: DateTime!
-    createdBy: User!
+    createdBy: User! @relation(name: "Creator")
+    associatedUser: User @relation(name: "Associated") @default(value: null)
 }
 
 type Team {
     id: ID! @unique
+    name: String! @default(value: "")
+    teamColor: String! @default(value: "#c05a5a")
     createdAt: DateTime!
-    players: [Player]!
+    createdBy: User!
+    players: [Player!]!
 }
 
 type Goal {
     id: ID! @unique
-    createdAt: DateTime!
-    time: Integer!
+    time: Int! @default(value: 0)
+    match: Match
     team: Team!
     player: Player!
-    points: Integer!
+    points: Int! @default(value: 1)
+    createdBy: User!
+    createdAt: DateTime!
 }
 
 type Match {
     id: ID! @unique
+    name: String!
+    timeActive: Int @default(value: 0)
     createdAt: DateTime!
-    teams: [Team]!
-    goals: [Goal]!
+    createdBy: User!
+    teams: [Team!]!
+    goals: [Goal!]!
+    modifiedAt: DateTime
 }
