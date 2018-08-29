@@ -1,6 +1,10 @@
 # Table Football – GraphQL API Server
 This server was intended as a supporting backend service for the [Table Football React Web App front-end](https://github.com/R-H-T/football) project I made earlier. Both are still work in progress, the `master`-branch contains the stable version of the project.
 
+![][image-1]
+
+---
+
 ### Index:
   * **[Table Football – GraphQL API Server](#table-football-–-graphql-api-server)**
   * **[Getting Started](#getting-started)**
@@ -15,9 +19,9 @@ This server was intended as a supporting backend service for the [Table Football
   * **[Future Plans](#future-plans)**
   * **[Licence](#license)**
 
-# Getting Started
-
 ---
+
+# Getting Started
 
 # Setup (_Step-by-Step_)
 Run all the terminal commands within the project root directory.
@@ -126,3 +130,5 @@ Planning to make this project run within its own Docker container or/and just de
 # License
 **TBD**
 Copyright ©2018 – Roberth Hansson-Tornéus ([R-H-T](github.com/R-H-T))
+
+[image-1]: r-h-t_tablefootball_md.png
