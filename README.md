@@ -105,9 +105,7 @@ To directly access the data layer, run the following commands:
 ```sh
 $ prisma playground
 ```
-This fires up another playground for directly modifying the database without restrictions\*.
-
-**(\*)** To send queries, you'll need an authorization token. Run the following command to generate one:
+This fires up another playground for directly modifying the database. Though, in order to send queries – you'll need an authorization token. Run the following command to generate one:
 ```sh
 $ prisma token
 ```
